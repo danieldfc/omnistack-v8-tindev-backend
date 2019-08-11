@@ -23,11 +23,11 @@ module.exports = {
   async store(req, res) {
     const { username } = req.body;
 
-    const response = await api.get(`users/${username}`);
-
     const userExists = await Dev.findOne({ user: username });
 
     if (userExists) return res.json(userExists);
+
+    const response = await api.get(`/users/${username}`);
 
     const { name, bio, avatar_url: avatar } = response.data;
 
