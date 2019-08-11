@@ -1,36 +1,36 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model } = require('mongoose');
 
 const DevSchema = new Schema(
   {
     name: {
       type: String,
-      required: true
+      required: true,
     },
     user: {
       type: String,
-      required: true
+      required: true,
     },
     bio: String,
     avatar: {
       type: String,
-      required: true
+      required: true,
     },
     likes: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Dev"
-      }
+        ref: 'Dev',
+      },
     ],
     dislikes: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Dev"
-      }
-    ]
+        ref: 'Dev',
+      },
+    ],
   },
   {
-    timestamps: true
+    timestamps: true,
   }
 );
 
-module.exports = model("Dev", DevSchema);
+module.exports = model('Dev', DevSchema);

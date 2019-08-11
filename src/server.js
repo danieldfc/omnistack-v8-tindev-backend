@@ -1,15 +1,15 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
 
-const routes = require("./routes");
+const routes = require('./routes');
 
 const server = express();
 
 mongoose.connect(
-  "mongodb+srv://admin:admin@cluster0-nogya.mongodb.net/omnistack?retryWrites=true&w=majority",
+  'mongodb+srv://admin:admin@cluster0-nogya.mongodb.net/omnistack?retryWrites=true&w=majority',
   {
-    useNewUrlParser: true
+    useNewUrlParser: true,
   }
 );
 

@@ -1,4 +1,4 @@
-const Dev = require("../model/Dev");
+const Dev = require('../model/Dev');
 
 module.exports = {
   async store(req, res) {
@@ -8,12 +8,12 @@ module.exports = {
     const loggedDev = await Dev.findById(user);
     const targetDev = await Dev.findById(devId);
 
-    if (!targetDev) return res.status(400).json({ error: "Dev not found" });
+    if (!targetDev) return res.status(400).json({ error: 'Dev not found' });
 
     loggedDev.dislikes.push(targetDev._id);
 
     await loggedDev.save();
 
     return res.json(loggedDev);
-  }
+  },
 };

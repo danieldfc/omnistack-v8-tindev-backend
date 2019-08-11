@@ -1,5 +1,5 @@
-const api = require("../services/api");
-const Dev = require("../model/Dev");
+const api = require('../services/api');
+const Dev = require('../model/Dev');
 
 module.exports = {
   async index(req, res) {
@@ -7,14 +7,14 @@ module.exports = {
 
     const loggedDev = await Dev.findById(user);
 
-    if (!loggedDev) return res.json({ error: "Dev not found" });
+    if (!loggedDev) return res.json({ error: 'Dev not found' });
 
     const devs = await Dev.find({
       $and: [
         { _id: { $ne: user } },
         { _id: { $nin: loggedDev.likes } },
-        { _id: { $nin: loggedDev.dislikes } }
-      ]
+        { _id: { $nin: loggedDev.dislikes } },
+      ],
     });
 
     return res.json(devs);
@@ -35,9 +35,9 @@ module.exports = {
       name,
       user: username,
       bio,
-      avatar
+      avatar,
     });
 
     return res.json(dev);
-  }
+  },
 };
